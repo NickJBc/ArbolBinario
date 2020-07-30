@@ -61,6 +61,7 @@ public class frmArbol extends javax.swing.JFrame {
         btnMostrarDesc = new javax.swing.JButton();
         btnMostrarNietos = new javax.swing.JButton();
         btnMostrarNiveles = new javax.swing.JButton();
+        btnSonHermanos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -236,6 +237,13 @@ public class frmArbol extends javax.swing.JFrame {
             }
         });
 
+        btnSonHermanos.setText("SonHermanos");
+        btnSonHermanos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSonHermanosActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -245,6 +253,8 @@ public class frmArbol extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnSonHermanos)
+                        .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addComponent(btnCantidadElem, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -347,7 +357,8 @@ public class frmArbol extends javax.swing.JFrame {
                     .addComponent(btnInorden)
                     .addComponent(btnPostOrden)
                     .addComponent(btnMostarPar)
-                    .addComponent(btnMostrarDesc))
+                    .addComponent(btnMostrarDesc)
+                    .addComponent(btnSonHermanos))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton1)
@@ -483,6 +494,12 @@ public class frmArbol extends javax.swing.JFrame {
     private void btnMostrarNivelesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarNivelesActionPerformed
         a1.mostrarPorNivel(ta);
     }//GEN-LAST:event_btnMostrarNivelesActionPerformed
+
+    private void btnSonHermanosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSonHermanosActionPerformed
+        int x=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese x"));
+        int y=Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese y"));
+        ta.append(String.valueOf(a1.sonHermanos(x, y)));
+    }//GEN-LAST:event_btnSonHermanosActionPerformed
  
     /**
      * @param args the command line arguments
@@ -540,6 +557,7 @@ public class frmArbol extends javax.swing.JFrame {
     private javax.swing.JButton btnMostrarPrimos;
     private javax.swing.JButton btnPostOrden;
     private javax.swing.JButton btnPreOrden;
+    private javax.swing.JButton btnSonHermanos;
     private javax.swing.JButton btnSonIguales;
     private javax.swing.JButton btnSumarPares;
     private javax.swing.JButton jButton1;
