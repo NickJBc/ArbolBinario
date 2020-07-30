@@ -501,4 +501,27 @@ class Arbol
             jta.append("\n");
         } 
     }
+    private boolean incompleto(Nodo p) {
+        return (p.getHD() != null && p.getHI() == null) || (p.getHD() == null && p.getHI() != null);  
+    }
+    private boolean sonHermanos(Nodo p, int x , int y) {
+          if (p == null )
+              return false;
+          else
+           if (esHoja(p) || incompleto(p))
+              return false;
+           else
+           {       
+              if (sonHermanos(p.getHI(), x, y) || sonHermanos(p.getHD(), x, y))
+                   return true;
+              else
+              {  
+                  return p.getHI().getElem()==x && p.getHD().getElem()==y || p.getHI().getElem()==y && p.getHD().getElem()==x;       
+              }
+           }        
+        }
+    public boolean sonHermanos(int x, int y) {
+        return sonHermanos(raiz, x, y);
+    }
+   
 }        
